@@ -1,14 +1,13 @@
 'use strict';
 
+
+
 class Node {
     constructor(value){
         this.value = value;
         this.next = null;
     }
 }
-
-
-
 
 
 class LinkedList {
@@ -67,32 +66,50 @@ class LinkedList {
         return listText;
     }
 
+    append(value){
+        let current = this.head;
+        while (current){
+            if(current.next !== null){
+                current = current.next;
+            } else{
+                current.next = new Node(value);
+                break;
+            }
+        }
+    }
+       insertBefore(value, newVal){
+            let current = this.head;
+            while(current){
+                if(current.next.value !== value){
+                    current = current.next;
+                }
+             else{
+                let newNode = new Node(newVal);
+                newNode.next = current.next;
+                current.next = newNode;
+                break;
+            }
+       } 
+
+    }
+    insertAfter(value, newVal){
+        let current = this.head;
+        while(current){
+            if(current.value !== value){
+                current = current.next;
+            }
+            else{
+                let newNode = new Node(newVal);
+                newNode.next = current.next;
+                current.next = newNode;
+                break;
+            }
+        }
+    }
 }
 
+module.exports = { LinkedList: LinkedList, Node: Node };
 
 
-describe('Test should instantiate an empty linked list', () =>{
-    test('Should successfully add an item to list', () =>{
-        let list = new LinkedList();
-        list.insert('a');
-        list.insert('b');
-        list.insert('c');
-        expect(list.head.value).toStrictEqual('c');
-    })
-    test('test will point to the first node in linked list', () =>{
-        let list = new LinkedList();
-        list.insert('a');
-        list.insert('b');
-        expect(list.includes('b')).toStrictEqual(true);
-        expect(list.includes('x')).toStrictEqual(false);
-    })
-    test('test will return a collection of all the values that exist', () =>{
-        let list = new LinkedList();
-        list.insert('a');
-        list.insert('b');
-        list.insert('c');
-        expect(list.toString()).toStrictEqual(`{c} -> {b} -> {a} -> NULL`);
-    })
-    
-});
+
 
