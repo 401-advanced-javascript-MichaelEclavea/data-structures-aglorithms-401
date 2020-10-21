@@ -1,6 +1,10 @@
 # Singly Linked List
 <!-- Short summary or background information -->
 
+
+## Kth index of Node
+This test will take in a kth(number) and display the node index of input K.
+
 ## Challenge
 This challenge builds a linked list that takes in specific data and passes all inputed tests. 
 
