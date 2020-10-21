@@ -32,6 +32,16 @@ describe('Test should instantiate an empty linked list', () =>{
         list.append('value');
         expect(list.append('value')).toStrictEqual()
     })
+    test('this will show the index value of nodes, which the index will be the input (k)', () =>{
+        let list = new testObject.LinkedList();
+        list.insert('a');
+        list.insert('b');
+        list.insert('c');
+        list.insert('d');
+        list.insert('e');
+        list.insert('f');
+        expect(list.kToEnd(4)).toStrictEqual('e');
+    })
     
 })
 

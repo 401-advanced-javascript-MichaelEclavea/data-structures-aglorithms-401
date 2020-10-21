@@ -106,6 +106,28 @@ class LinkedList {
             }
         }
     }
+        kToEnd(k){
+            let current = this.head;
+            let lengthCount = 0; 
+            while(current){
+                current = current.next;
+                lengthCount += 1;
+            }
+                if (lengthCount < k){
+                    return 'exception';
+                } else if (k <= lengthCount){
+                    let end = lengthCount - k;
+                    current = this.head; 
+                    for (let i = 0; i < end - 1; i++){
+                        current = current.next; 
+                    }
+                    return current.value;
+                }
+                       
+                        
+                        
+        }
+
 }
 
 module.exports = { LinkedList: LinkedList, Node: Node };
