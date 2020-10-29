@@ -3,13 +3,22 @@
 // const { AnimalShelter } = require('./fifo-animal-shelter.js');
 const testObject = require('./fifo-animal-shelter.js');
 
+describe('Testing to add dogs and cats to animal shelter', () => {
+  test('Can successfully ad a dog', () => {
 
-describe('Testing to make the queue has stacks', () => {
-  test('Can successfully push a node to the stack  and then add the stack into the queue', () => {
-    // let testNode = new ll.Stack;
-    // testNode.push(5)
     let animal = new testObject.AnimalShelter();
-    animal.enqueue('kitty', 'cat');
-    expect(animal.front.top).toStrictEqual('cat');
+    animal.enqueue('dog');
+    expect(animal.front.top.value).toStrictEqual('dog');
+  });
+  test('Can successfully ad a cat', () => {
+    let animal = new testObject.AnimalShelter();
+    animal.enqueue('cat');
+    expect(animal.front.top.value).toStrictEqual('cat');
+  });
+  test('Can successfully return null', () => {
+
+    let animal = new testObject.AnimalShelter();
+    animal.enqueue('zebra');
+    expect(animal.front.top).toStrictEqual(null);
   });
 });
