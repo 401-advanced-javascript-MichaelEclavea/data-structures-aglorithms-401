@@ -1,34 +1,43 @@
-"use strict";
+'use strict';
 class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
-
 class AnimalShelter {
   constructor() {
     this.front = new Stack();
     this.rear = new Stack();
   }
-  enqueue(value, animal) {
-      if(!this.front.top){
-          let temp = this.front.value;
-        //   temp.next = this.front;
-          this.front.top = value;
-          temp.next = null;
-          return this.front.top.value;
+  enqueue(value) {
+    if (value !== 'dog' && value !== 'cat') {
+      return null
+    } else {
+      while (this.front.top) {
+        let inTransit = this.front.pop();
+        this.rear.push(inTransit);
+      }
+      this.front.push(value);
+      while (this.rear.top) {
+        let inTransit = this.rear.pop();
+        this.front.push(inTransit);
       }
     }
-
-  dequeue() {
-    this.front.pop;
   }
-
+  dequeue(value) {
+    if (value === 'dog' || value === 'cat') {
+      return this.front.pop();
+    } 
+     else{
+       return null;
+     }
+    
+  }
 }
 class Stack {
   constructor() {
-    this.top = null;
+    this.top = null
   }
   push(value) {
     const node = new Node(value);
@@ -43,36 +52,12 @@ class Stack {
   }
   peek() {
     if (!this.isEmpty()) {
-      return this.top.value;
+      return this.top.value
     }
   }
 }
-
-// class Dog {
-//   constructor() {
-//     this.top = null
-//   }
-//   push(value) {
-//     const node = new Node(value);
-//     node.next = this.top;
-//     this.top = node;
-//   }
-//   pop() {
-//     let temp = this.top;
-//     this.top = temp.next;
-//     temp.next = null;
-//     return temp.value;
-//   }
-//   peek() {
-//     if (!this.isEmpty()) {
-//       return this.top.value
-//     }
-//   }
-// }
-
 module.exports = {
   Node: Node,
   Stack: Stack,
-  AnimalShelter: AnimalShelter
-
-}
+  AnimalShelter: AnimalShelter,
+};
