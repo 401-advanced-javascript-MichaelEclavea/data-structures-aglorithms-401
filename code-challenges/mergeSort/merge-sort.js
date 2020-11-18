@@ -6,19 +6,12 @@ function mergeSort (unsortedArray) {
  if (unsortedArray.length <= 1) {
    return unsortedArray;
  }
-
  const mid = Math.floor(unsortedArray.length / 2);
  const left = unsortedArray.slice(0, mid);
  const right = unsortedArray.slice(mid);
  return merge(
    mergeSort(left), mergeSort(right)
  );
-}
-
-
-
-
-
  function merge (left, right) {
      let finalArray = [];
      let leftIndex = 0;
@@ -34,9 +27,7 @@ function mergeSort (unsortedArray) {
        }
      }
 
-     return finalArray
-             .concat(left.slice(leftIndex))
-             .concat(right.slice(rightIndex));
+     return finalArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
    }
-
-mergeSort(array);
+  }
+module.exports = mergeSort;
