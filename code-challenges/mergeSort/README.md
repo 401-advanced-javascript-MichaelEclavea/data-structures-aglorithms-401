@@ -20,5 +20,5 @@ merge left and right arrays into one.
 
 ## Approach & Efficiency
 My approach was to follow the logic on the psedocode. This was extremely difficult to follow the psedocodes logic. So my approach was to follow the scaffold and step through step by step.
-
+[Source-Code](https://medium.com/javascript-in-plain-english/javascript-merge-sort-3205891ac060)
 [uml]('./uml/pic.png')
