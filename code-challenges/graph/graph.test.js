@@ -30,7 +30,7 @@ describe('This tests will determine that the graphing code implements, adds and 
         myGraph.addNode('4');
         myGraph.addNode('5');
         myGraph.addNode('6');
-        expect(myGraph.size()).toStrictEqual(7)
+        expect(myGraph.breadthFirst()).toStrictEqual('0-->')
     })
 
 })
