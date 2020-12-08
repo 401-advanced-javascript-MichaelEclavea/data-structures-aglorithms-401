@@ -33,6 +33,18 @@ class Graph {
         return ( node + "-->" + connections); 
       } 
   } 
+    breadthFirst(){
+      const allNodes = Object.keys(this.adjacentList); 
+      for (let node of allNodes) { 
+        let nodeConnections = this.adjacentList[node]; 
+        let connections = ""; 
+        let vertex;
+        for (vertex of nodeConnections) {
+          connections += vertex + " ";
+        } 
+        return ( node + "-->" + connections); 
+      } 
+    }
 
     size(){
         return this.numberOfNodes;
